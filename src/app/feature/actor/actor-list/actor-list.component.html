@@ -1,0 +1,50 @@
+<app-menu></app-menu>
+<div>
+    <section class ="heading">
+        <span class = "page-title font-weight-bold font-italic"></span>
+        <a routerLink="/actor/create">
+            <img width="20" height="20" src="assets/add-icon.png" title="Add New" />
+      </a>
+    </section>
+<h1>{{ title}}</h1>
+<table *ngIf ="actors" class="table-sm table-striped">
+    <thead>
+       <tr> 
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Gender</th>
+        <th>Birthdate</th>
+    </tr>
+            
+        
+    </thead>
+    <tbody>
+        <tr *ngFor ="let actor of actors">
+            <td>{{ actor.id}}</td>
+            <td>{{ actor.firstName}}</td>
+            <td>{{ actor.lastName}}</td>
+            <td>{{ actor.gender}}</td>
+            <td>{{ actor.birthDate | date : "yyyy/MM/dd"}}</td>
+            <td>
+            <a routerLink="/actors/detail/{{ actor.id }}">
+                <img
+                  width="20"
+                  height="20"
+                  src="assets/details.png"
+                  title="Actor Details"
+                />
+              </a>
+              <a routerLink="/actor/edit/{{ actor.id }}">
+                <img
+                  width="20"
+                  height="20"
+                  src="assets/pencil-icon.png"
+                  title="Edit Actor"
+                />
+              </a>
+        </td>
+        </tr>
+    </tbody>
+</table>
+</div>
